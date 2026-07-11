@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.github.gtbdemian.budgetapprovalsystem.mapper.ApprovalMapper">
+
+    <select id="findByBudgetRequestId" resultType="Approval">
+        SELECT * FROM approvals where budget_request_id = #{budgetRequestId}
+    </select>
+
+    <select id="findById" resultType="Approval">
+        SELECT * FROM approvals WHERE id = #{id}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO approvals (budget_request_id, user_id, approval_status, approval_step, comment)
+        VALUES (#{budgetRequestId}, #{userId}, #{approvalStatus}, #{approvalStep}, #{comment})
+    </insert>
+
+</mapper>

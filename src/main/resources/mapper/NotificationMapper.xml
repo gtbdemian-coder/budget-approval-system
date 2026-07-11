@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.github.gtbdemian.budgetapprovalsystem.mapper.NotificationMapper">
+
+    <select id="findByUserId" resultType="Notification">
+        SELECT * FROM notifications where user_id = #{userId}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO notifications (user_id, budget_request_id, message, is_read)
+        VALUES (#{userId}, #{budgetRequestId}, #{message}, #{isRead})
+    </insert>
+
+    <update id="updateIsRead">
+        UPDATE notifications
+        SET is_read = #{isRead}
+        WHERE id = #{id}
+    </update>
+
+</mapper>

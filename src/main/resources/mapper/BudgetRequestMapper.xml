@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.github.gtbdemian.budgetapprovalsystem.mapper.BudgetRequestMapper">
+
+    <select id="findAll" resultType="BudgetRequest">
+        SELECT * FROM budget_requests
+    </select>
+
+    <select id="findById" resultType="BudgetRequest">
+        SELECT * FROM budget_requests WHERE id = #{id}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO budget_requests (user_id, budget_amount, comment, title, status)
+        VALUES (#{userId}, #{budgetAmount}, #{comment}, #{title}, #{status})
+    </insert>
+
+    <update id="update">
+        UPDATE budget_requests
+        SET user_id = #{userId},
+            budget_amount = #{budgetAmount},
+            comment = #{comment},
+            title = #{title},
+            status = #{status}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM budget_requests WHERE id = #{id}
+    </delete>
+
+</mapper>

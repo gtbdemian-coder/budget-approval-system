@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.github.gtbdemian.budgetapprovalsystem.mapper.UserMapper">
+
+    <select id="findAll" resultType="User">
+        SELECT * FROM users
+    </select>
+
+    <select id="findById" resultType="User">
+        SELECT * FROM users WHERE id = #{id}
+    </select>
+
+    <select id="findByEmail" resultType="User">
+        SELECT * FROM users WHERE email = #{email}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO users (department_id, name, employee_number, title, role, email, password)
+        VALUES (#{departmentId}, #{name}, #{employeeNumber}, #{title}, #{role}, #{email}, #{password})
+    </insert>
+
+    <update id="update">
+        UPDATE users
+        SET department_id = #{departmentId},
+            name = #{name},
+            title = #{title},
+            role = #{role},
+            email = #{email},
+            password = #{password}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM users WHERE id = #{id}
+    </delete>
+</mapper>
