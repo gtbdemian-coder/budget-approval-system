@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>예산신청서 목록</title>
+</head>
+<body>
+
+<div th:replace="~{layout/header :: header}"></div>
+
+<h2>예산신청서 목록</h2>
+
+<a href="/budget-requests/new">신규 신청</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>신청금액</th>
+            <th>상태</th>
+            <th>신청일</th>
+            <th>상세</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr th:each="budgetRequest : ${budgetRequests}">
+        <td th:text="${budgetRequest.id}"></td>
+        <td th:text="${budgetRequest.title}"></td>
+        <td th:text="${budgetRequest.budgetAmount}"></td>
+        <td th:text="${budgetRequest.status}"></td>
+        <td th:text="${budgetRequest.createdAt}"></td>
+        <td><a th:href="@{/budget-requests/{id}(id=${budgetRequest.id})}">상세보기</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

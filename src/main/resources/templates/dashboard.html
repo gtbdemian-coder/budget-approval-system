@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns: th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>대시보드</title>
+</head>
+
+<body>
+
+<div th:replace="~{layout/header :: header}"></div>
+
+<h2>대시보드</h2>
+
+<div>
+    <h2>내 예산 신청 현황</h2>
+    <p>대기중: <span th:text="${pendingCount}"></span>건</p>
+    <p>승인: <span th:text="${approvedCount}"></span>건</p>
+    <p>반려: <span th:text="${rejectedCount}"></span>건</p>
+</div>
+
+<div>
+    <h3>최근 알림</h3>
+    <ul>
+        <li th:each="notification: ${notifications}"
+            th:text="${notification.message}"></li>
+    </ul>
+</div>
+</body>
+</html>
