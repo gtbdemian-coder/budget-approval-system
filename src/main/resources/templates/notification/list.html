@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>알림 목록</title>
+</head>
+<body>
+
+<div th:replace="~{layout/header :: header}"></div>
+
+<h2>알림 목록</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>메시지</th>
+            <th>읽음여부</th>
+            <th>날짜</th>
+            <th>처리</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="notification : ${notifications}">
+            <td th:text="${notification.message}"></td>
+            <td th:text="${notification.isRead}"></td>
+            <td th:text="${notification.createdAt}"></td>
+            <td>
+                <form th:action="@{/notifications/{id}/read(id=${notification.id})}"
+                      method="post">
+                    <button type="submit">읽음 처리</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
