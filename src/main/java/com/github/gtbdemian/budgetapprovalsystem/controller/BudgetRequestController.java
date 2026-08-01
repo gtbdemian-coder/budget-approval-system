@@ -2,6 +2,7 @@ package com.github.gtbdemian.budgetapprovalsystem.controller;
 
 import com.github.gtbdemian.budgetapprovalsystem.domain.Approval;
 import com.github.gtbdemian.budgetapprovalsystem.domain.BudgetRequest;
+import com.github.gtbdemian.budgetapprovalsystem.dto.ApprovalDto;
 import com.github.gtbdemian.budgetapprovalsystem.service.ApprovalService;
 import com.github.gtbdemian.budgetapprovalsystem.service.BudgetRequestService;
 import org.springframework.stereotype.Controller;
@@ -35,7 +36,7 @@ public class BudgetRequestController {
     @GetMapping("/{id}")
     public String findById(@PathVariable Long id, Model model) {
         BudgetRequest budgetRequest = budgetRequestService.findById(id);
-        List<Approval> approvals = approvalService.findByBudgetRequestId(id);
+        List<ApprovalDto> approvals = approvalService.findByBudgetRequestId(id);
         model.addAttribute("budgetRequest", budgetRequest);
         model.addAttribute("approvals", approvals);
         return "budget-request/detail";

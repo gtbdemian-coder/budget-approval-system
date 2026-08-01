@@ -5,12 +5,11 @@
 
 <mapper namespace="com.github.gtbdemian.budgetapprovalsystem.mapper.ApprovalMapper">
 
-    <select id="findByBudgetRequestId" resultType="Approval">
-        SELECT * FROM approvals where budget_request_id = #{budgetRequestId}
-    </select>
-
-    <select id="findById" resultType="Approval">
-        SELECT * FROM approvals WHERE id = #{id}
+    <select id="findByBudgetRequestId" resultType="ApprovalDto">
+        SELECT a.*, u.name AS user_name
+        FROM approvals a
+        JOIN users u ON a.user_id = u.id
+        WHERE a.budget_request_id = #{budgetRequestId}
     </select>
 
     <insert id="insert">

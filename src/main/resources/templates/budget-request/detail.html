@@ -47,7 +47,7 @@
     <tbody>
     <tr th:each="approval : ${approvals}">
         <td th:text="${approval.approvalStep}"></td>
-        <td th:text="${approval.userId}"></td>
+        <td th:text="${approval.userName}"></td>
         <td th:text="${approval.approvalStatus}"></td>
         <td th:text="${approval.comment}"></td>
         <td th:text="${approval.createdAt}"></td>
