@@ -23,8 +23,8 @@ public class UserService {
         return userMapper.findById(id);
     }
 
-    public User findByEmail(String email) {
-        return userMapper.findByEmail(email);
+    public User findByEmployeeNumber(String employeeNumber) {
+        return userMapper.findByEmployeeNumber(employeeNumber);
     }
 
     public void insert(User user) {

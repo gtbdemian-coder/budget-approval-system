@@ -8,11 +8,11 @@ VALUES ('재무팀', 20000000);
 
 -- ===== 2. USERS (임직원) =====
 INSERT INTO users (department_id, name, employee_number, title, role, email, password)
-VALUES (1, '김철수', 'EMP001', '사원', 'EMPLOYEE', 'chulsoo@company.com', '1234');
+VALUES (1, '김철수', 'EMP001', '사원', 'EMPLOYEE', 'chulsoo@company.com', '$2a$10$5vek3vxeflCSxafFBGSUt.5fLYmdMklU9NZIIRM6kcGuVUxvFMOzG');
 INSERT INTO users (department_id, name, employee_number, title, role, email, password)
-VALUES (2, '이영희', 'EMP002', '부장', 'MANAGER', 'younghee@company.com', '1234');
+VALUES (2, '이영희', 'EMP002', '부장', 'MANAGER', 'younghee@company.com', '$2a$10$5vek3vxeflCSxafFBGSUt.5fLYmdMklU9NZIIRM6kcGuVUxvFMOzG');
 INSERT INTO users (department_id, name, employee_number, title, role, email, password)
-VALUES (3, '박재부', 'EMP003', '과장', 'FINANCE', 'jaemu@company.com', '1234');
+VALUES (3, '박재무', 'EMP003', '과장', 'FINANCE', 'jaemu@company.com', '$2a$10$5vek3vxeflCSxafFBGSUt.5fLYmdMklU9NZIIRM6kcGuVUxvFMOzG');
 
 -- ===== 3. BUDGET REQUESTS (예산신청서) =====
 INSERT INTO budget_requests (user_id, budget_amount, comment, title, status)
