@@ -50,7 +50,7 @@
         <td th:text="${approval.userName}"></td>
         <td th:text="${approval.approvalStatus}"></td>
         <td th:text="${approval.comment}"></td>
-        <td th:text="${approval.createdAt}"></td>
+        <td th:text="${#temporals.format(budgetRequest.createdAt, 'yyyy-MM-dd HH:mm')}"></td>
     </tr>
     </tbody>
 </table>

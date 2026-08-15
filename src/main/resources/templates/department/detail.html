@@ -21,7 +21,7 @@
     </tr>
     <tr>
         <th>생성일</th>
-        <td th:text="${department.createdAt}"></td>
+        <td th:text="${#temporals.format(budgetRequest.createdAt, 'yyyy-MM-dd HH:mm')}"></td>
     </tr>
 </table>
 

@@ -29,7 +29,7 @@
         <td th:text="${budgetRequest.title}"></td>
         <td th:text="${budgetRequest.budgetAmount}"></td>
         <td th:text="${budgetRequest.status}"></td>
-        <td th:text="${budgetRequest.createdAt}"></td>
+        <td th:text="${#temporals.format(budgetRequest.createdAt, 'yyyy-MM-dd HH:mm')}"></td>
         <td><a th:href="@{/budget-requests/{id}(id=${budgetRequest.id})}">상세보기</a></td>
     </tr>
     </tbody>

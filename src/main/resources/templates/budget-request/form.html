@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>예산 신청</title>
+</head>
+<body>
+
+<div th:replace="~{layout/header :: header}"></div>
+
+<h2>예산 신청</h2>
+
+<form action="/budget-requests" method="post">
+    <div>
+        <label>제목</label>
+        <input type="text" name="title" placeholder="제목을 입력하세요">
+    </div>
+    <div>
+        <label>신청금액</label>
+        <input type="number" name="budgetAmount" placeholder="금액을 입력하세요">
+    </div>
+    <div>
+        <label>코멘트</label>
+        <textarea name="comment" placeholder="신청 사유를 입력하세요"></textarea>
+    </div>
+    <button type="submit">신청</button>
+</form>
+
+<a href="/budget-requests">목록으로</a>
+
+</body>
+</html>

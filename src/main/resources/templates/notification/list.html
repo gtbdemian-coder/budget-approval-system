@@ -23,7 +23,7 @@
         <tr th:each="notification : ${notifications}">
             <td th:text="${notification.message}"></td>
             <td th:text="${notification.isRead}"></td>
-            <td th:text="${notification.createdAt}"></td>
+            <td th:text="${#temporals.format(budgetRequest.createdAt, 'yyyy-MM-dd HH:mm')}"></td>
             <td>
                 <form th:action="@{/notifications/{id}/read(id=${notification.id})}"
                       method="post">
