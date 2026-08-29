@@ -23,6 +23,10 @@ public class BudgetRequestService {
         return budgetRequestMapper.findById(id);
     }
 
+    public int countByUserIdAndStatus(Long userId, String status) {
+        return budgetRequestMapper.countByUserIdAndStatus(userId, status);
+    }
+
     public void insert(BudgetRequest budgetRequest) {
         budgetRequestMapper.insert(budgetRequest);
     }

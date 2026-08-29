@@ -13,6 +13,12 @@
         SELECT * FROM budget_requests WHERE id = #{id}
     </select>
 
+    <select id="countByUserIdAndStatus" resultType="int">
+        SELECT COUNT(*) FROM budget_requests
+        WHERE user_id = #{userId}
+        AND status = #{status}
+    </select>
+
     <insert id="insert">
         INSERT INTO budget_requests (user_id, budget_amount, comment, title, status)
         VALUES (#{userId}, #{budgetAmount}, #{comment}, #{title}, #{status})
