@@ -3,30 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>예산 신청</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
 
 <div th:replace="~{layout/header :: header}"></div>
 
-<h2>예산 신청</h2>
+<div class="container mt-4">
+    <h2 class="mb-4">예산 신청</h2>
 
-<form action="/budget-requests" method="post">
-    <div>
-        <label>제목</label>
-        <input type="text" name="title" placeholder="제목을 입력하세요">
+    <div class="card">
+        <div class="card-body">
+            <form action="/budget-requests" method="post">
+                <div class="mb-3">
+                    <label class="form-label">제목</label>
+                    <input type="text" name="title" class="form-control" placeholder="제목을 입력하세요">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">신청금액</label>
+                    <input type="number" name="budgetAmount" class="form-control" placeholder="금액을 입력하세요">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">코멘트</label>
+                    <textarea name="comment" class="form-control" rows="3" placeholder="신청 사유를 입력하세요"></textarea>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">신청</button>
+                    <a href="/budget-requests" class="btn btn-secondary">취소</a>
+                </div>
+            </form>
+        </div>
     </div>
-    <div>
-        <label>신청금액</label>
-        <input type="number" name="budgetAmount" placeholder="금액을 입력하세요">
-    </div>
-    <div>
-        <label>코멘트</label>
-        <textarea name="comment" placeholder="신청 사유를 입력하세요"></textarea>
-    </div>
-    <button type="submit">신청</button>
-</form>
+</div>
 
-<a href="/budget-requests">목록으로</a>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
